@@ -27,7 +27,7 @@ let villains = [
 ]
 
 app.get('/', (req, res)=>{
-    res.send('Welcome to the Villains Page');
+    res.send('<h1>Welcome to the Villains Page</h1>');
 });
 
 app.get('/villains', (req, res) =>{

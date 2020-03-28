@@ -33,7 +33,7 @@ let heroes = [
 ];
 
 app.get('/', (req, res) => {
-    res.send('Welcome to the Heroes Page');
+    res.send('<h1>Welcome to the Heroes Page</h1>');
 });
 
 app.get('/heroes', (req, res) => {
