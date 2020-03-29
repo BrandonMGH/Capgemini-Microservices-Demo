@@ -4,6 +4,7 @@ const PORT = 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(authenticated)
 
 let heroes = [
     {
@@ -34,6 +35,7 @@ let heroes = [
 
 app.get('/', (req, res) => {
     res.send('<h1>Welcome to the Heroes Page</h1>');
+    console.log("got")
 });
 
 app.get('/heroes', (req, res) => {
@@ -63,6 +65,15 @@ app.post('/heroes', (req, res) => {
     res.send(heroes);
 });
 
+function authenticated (req, res, next) {
+    if(req.query.admin === "loggedIn"){
+        next();
+    } else {
+        res.send(
+            "<h1> YOU ARE NOT AUTHENTICATED </h1>"
+        )
+    }
+}
 
 
 app.listen(PORT, () => {
